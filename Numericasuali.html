@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Numeri Casuali</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            font-size: 16px;
+        }
+        #risultato {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Generatore Numeri Casuali</h1>
+
+    <button onclick="generaNumero()">1️ Genera Numero Casuale</button>
+    <button onclick="arrotondaNumero()">2️ Math.floor(numeroCasuale)</button>
+    <button onclick="numeroDa1a90()">3️ Numero tra 1 e 90</button>
+
+    <div id="risultato">Risultato: </div>
+
+    <script>
+        let numeroCasuale;
+
+        // 1) Genera numero casuale tra 0 (incluso) e 1 (escluso)
+        function generaNumero() {
+            numeroCasuale = Math.random();
+            document.getElementById("risultato").innerHTML = 
+                "Numero casuale: " + numeroCasuale;
+        }
+
+        // 2) Applica Math.floor al numero casuale generato
+        function arrotondaNumero() {
+            if (numeroCasuale === undefined) {
+                alert("Prima genera un numero casuale!");
+                return;
+            }
+            let risultato = Math.floor(numeroCasuale);
+            document.getElementById("risultato").innerHTML = 
+                "Math.floor(numeroCasuale): " + risultato;
+        }
+
+        // 3) Numero casuale tra 1 e 90
+        function numeroDa1a90() {
+            let numero = Math.floor(Math.random() * 90) + 1;
+            document.getElementById("risultato").innerHTML = 
+                "Numero casuale tra 1 e 90: " + numero;
+        }
+    </script>
+
+</body>
+</html>

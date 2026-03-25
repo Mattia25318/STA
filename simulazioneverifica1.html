@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcolo Percentuale</title>
+</head>
+<body>
+
+    <h2>Calcolo Percentuale</h2>
+
+    <label for="numero">Numero (n): </label>
+    <input type="number" id="numero"><br><br>
+
+    <label for="tasso">Tasso percentuale (t): </label>
+    <input type="number" id="tasso"><br><br>
+
+    <button onclick="calcolaPercentuale()">Calcola</button>
+
+    <h3 id="risultato"></h3>
+
+    <script>
+        function calcolaPercentuale() {
+            let n = parseFloat(document.getElementById("numero").value);
+            let t = parseFloat(document.getElementById("tasso").value);
+
+            if (isNaN(n) || isNaN(t)) {
+                document.getElementById("risultato").innerText = "Inserisci valori validi!";
+                return;
+            }
+
+            let p = (n * t) / 100;
+
+            document.getElementById("risultato").innerText = 
+                "La percentuale è: " + p;
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Calcolo Banconote</title>
+</head>
+<body>
+
+<h2>Calcolo minimo banconote (10, 20, 50)</h2>
+
+<input type="number" id="importo" placeholder="Inserisci importo">
+<button onclick="calcola()">Calcola</button>
+
+<p id="risultato"></p>
+
+<script>
+function calcola() {
+    let importo = parseInt(document.getElementById("importo").value);
+
+    if (importo % 10 !== 0) {
+        document.getElementById("risultato").innerText = "Importo non valido (deve essere multiplo di 10)";
+        return;
+    }
+
+    let banconote50 = Math.floor(importo / 50);
+    importo = importo % 50;
+
+    let banconote20 = Math.floor(importo / 20);
+    importo = importo % 20;
+
+    let banconote10 = Math.floor(importo / 10);
+
+    document.getElementById("risultato").innerText =
+        "50€: " + banconote50 +
+        ", 20€: " + banconote20 +
+        ", 10€: " + banconote10;
+}
+</script>
+
+</body>
+</html>
